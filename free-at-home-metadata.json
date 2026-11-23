@@ -1,0 +1,90 @@
+{
+  "id": "de.private.vallox",
+  "version": "0.1.3",
+  "name": {
+    "en": "Vallox ventilation",
+    "de": "Vallox Lüftung"
+  },
+  "description": {
+    "en": "Integrates a MyVallox ventilation unit via its local websocket API: temperatures, humidity, fan speed, filter and fault status, Home/Away, Boost and Fireplace mode.",
+    "de": "Bindet eine MyVallox-Lüftungsanlage über die lokale Websocket-API ein: Temperaturen, Luftfeuchte, Lüfterdrehzahl, Filter- und Störungsstatus, Zuhause/Abwesend, Stoßlüftung und Kaminmodus."
+  },
+  "license": "MIT",
+  "author": "J. Gilles",
+  "url": "https://github.com/juliangilles/free-home-vallox",
+  "type": "app",
+  "entryPoint": "build/main.js",
+  "accessControl": {
+    "allowedAPIs": [
+      "notification"
+    ],
+    "networkAccess": true
+  },
+  "parameters": {
+    "vallox": {
+      "name": "Vallox",
+      "name@de": "Vallox",
+      "items": {
+        "host": {
+          "name": "IP address of the Vallox unit",
+          "name@de": "IP-Adresse der Vallox-Anlage",
+          "type": "ipv4",
+          "required": true
+        },
+        "pollInterval": {
+          "name": "Polling interval (seconds)",
+          "name@de": "Abfrageintervall (Sekunden)",
+          "type": "number",
+          "min": 10,
+          "max": 600,
+          "default": 30
+        },
+        "boostMinutes": {
+          "name": "Boost duration (minutes, 0 = unit default, 65535 = unlimited)",
+          "name@de": "Dauer Stoßlüftung (Minuten, 0 = Gerätestandard, 65535 = unbegrenzt)",
+          "type": "number",
+          "min": 0,
+          "max": 65535,
+          "default": 30
+        },
+        "fireplaceMinutes": {
+          "name": "Fireplace duration (minutes, 0 = unit default, 65535 = unlimited)",
+          "name@de": "Dauer Kaminmodus (Minuten, 0 = Gerätestandard, 65535 = unbegrenzt)",
+          "type": "number",
+          "min": 0,
+          "max": 65535,
+          "default": 15
+        },
+        "homeFanSpeed": {
+          "name": "Fan speed for \"Home\" actuator (%, 0 = keep current setting)",
+          "name@de": "Lüfterleistung für Aktor „Zuhause“ (%, 0 = Sollwert nicht ändern)",
+          "type": "number",
+          "min": 0,
+          "max": 100,
+          "default": 52
+        },
+        "filterWarnDays": {
+          "name": "Filter warning threshold (days)",
+          "name@de": "Filterwarnung ab (Tage vor Wechsel)",
+          "type": "number",
+          "min": 0,
+          "max": 365,
+          "default": 14
+        },
+        "filterDaysInName": {
+          "name": "Show remaining filter days in device name",
+          "name@de": "Resttage Filter im Gerätenamen anzeigen",
+          "type": "boolean",
+          "default": true
+        },
+        "notifications": {
+          "name": "Send notifications (fault, filter)",
+          "name@de": "Benachrichtigungen senden (Störung, Filter)",
+          "type": "boolean",
+          "default": true
+        }
+      }
+    }
+  },
+  "supportUrl": "https://github.com/juliangilles/free-home-vallox/issues"
+}
