@@ -64,6 +64,8 @@ Update: neue `.tar` genauso hochladen. Die Geräte bleiben erhalten, Raumzuordnu
 
 In den Einstellungen des Add-ons (App oder Weboberfläche des SysAP):
 
+<img src="docs/images/einstellungen.png" alt="Einstellungen des Add-ons in der free@home next App" width="420">
+
 | Einstellung | Standard | Bedeutung |
 |---|---|---|
 | IP-Adresse der Vallox-Anlage | – | Pflichtfeld |
